@@ -21,6 +21,7 @@ l_paddle = Paddle(-350, 0)
 ping = Ball()
 screen.tracer(0)
 score = Scoreboard()
+score1 = Scoreboard()
 
 # TODO paddle movement
 screen.listen()
@@ -42,8 +43,12 @@ while game_on:
     #TODO paddle reflect
     if ping.distance(r_paddle) < 50 and ping.xcor() > 330 or ping.distance(l_paddle) < 50 and ping.xcor() > -330:
         ping.paddle_reflect()
-    elif ping.xcor() > 350 or ping.xcor() < -350:
-        print('lost ')
+    if ping.xcor() > 350 or ping.xcor() < -350:
+        screen.update()
+        ping.goto(0, 0)
+        ping.second_move()
+        score.l_scoreboard()
+        score1.r_scoreboard()
 
 
 

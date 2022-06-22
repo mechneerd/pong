@@ -28,4 +28,7 @@ class Ball(Turtle, Random):
     def paddle_reflect(self):
         self.move_x *= -1
 
+    def second_move(self):
+        self.goto(0, 0)
+        self.paddle_reflect()
 
