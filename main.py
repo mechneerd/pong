@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import random
 import time
 
@@ -19,6 +20,7 @@ r_paddle = Paddle(350, 0)
 l_paddle = Paddle(-350, 0)
 ping = Ball()
 screen.tracer(0)
+score = Scoreboard()
 
 # TODO paddle movement
 screen.listen()
@@ -38,9 +40,15 @@ while game_on:
         ping.wall_reflect()
 
     #TODO paddle reflect
-    if ping.distance(r_paddle) < 50 and ping.xcor() > 340 or ping.distance(l_paddle) < 50 and ping.xcor() > -340:
+    if ping.distance(r_paddle) < 50 and ping.xcor() > 330 or ping.distance(l_paddle) < 50 and ping.xcor() > -330:
         ping.paddle_reflect()
-    elif ping.xcor() > 340 or ping.xcor() < -340:
+    elif ping.xcor() > 350 or ping.xcor() < -350:
+        print('lost ')
+
+
+
+
+
 
 
 
