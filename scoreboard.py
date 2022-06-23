@@ -11,16 +11,20 @@ class Scoreboard(Turtle):
         self.hideturtle()
         self.penup()
 
-    def r_scoreboard(self):
+    def update_score(self):
+        self.clear()
         self.goto(50, 270)
-        self.clear()
         self.write(f'{self.r_score}', align='center', font=('Aerial', 20, 'normal'))
-        if self.xcor() < 380:
-            self.r_score += 1
-
-    def l_scoreboard(self):
         self.goto(-50, 270)
-        self.clear()
         self.write(f'{self.l_score}', align='center', font=('Aerial', 20, 'normal'))
-        if self.xcor() > -380:
-            self.l_score += 1
+
+    def r_point(self):
+        self.l_score += 1
+        self.update_score()
+
+    def l_point(self):
+        self.r_score += 1
+        self.update_score()
+
+
+

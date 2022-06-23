@@ -1,4 +1,6 @@
 from turtle import Turtle, Screen
+
+import scoreboard
 from paddle import Paddle
 from ball import Ball
 from scoreboard import Scoreboard
@@ -32,7 +34,7 @@ screen.onkey(key='j', fun=r_paddle.go_down)
 
 #TODO game start
 while game_on:
-    time.sleep(0.1)
+    time.sleep(ping.ball_speed)
     screen.update()
     ping.random_move()
 
@@ -43,12 +45,13 @@ while game_on:
     #TODO paddle reflect
     if ping.distance(r_paddle) < 50 and ping.xcor() > 330 or ping.distance(l_paddle) < 50 and ping.xcor() > -330:
         ping.paddle_reflect()
-    if ping.xcor() > 350 or ping.xcor() < -350:
         screen.update()
-        ping.goto(0, 0)
+    if ping.xcor() > 380:
         ping.second_move()
-        score.l_scoreboard()
-        score1.r_scoreboard()
+        score.r_point()
+    if ping.xcor() < -380:
+        ping.second_move()
+        score.l_point()
 
 
 

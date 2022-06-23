@@ -16,6 +16,7 @@ class Ball(Turtle, Random):
         self.penup()
         self.move_x = 10
         self.move_y = 10
+        self.ball_speed = .1
 
     def random_move(self):
         new_x = self.xcor() + self.move_x
@@ -27,8 +28,10 @@ class Ball(Turtle, Random):
 
     def paddle_reflect(self):
         self.move_x *= -1
+        self.ball_speed *= .8
 
     def second_move(self):
         self.goto(0, 0)
+        self.ball_speed = 0.1
         self.paddle_reflect()
 
